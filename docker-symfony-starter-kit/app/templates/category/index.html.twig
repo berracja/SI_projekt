@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.category_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.category_list'|trans }}</h1>
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+    {% if pagination is defined and pagination.items|length %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'category.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'category.updatedAt') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in pagination.items %}
+                <tr>
+                    <td>{{ category.title }}</td>
+                    <td>{{ category.createdAt|format_date('long') }}</td>
+                    <td>{{ category.updatedAt|format_date('long') }}</td>
+                    <td>
+                        <a class="btn btn-outline-primary" href="{{ path('category_show', {'id': category.id}) }}">{{ 'action.show'|trans }}</a>
+                        <a class="btn btn-outline-success" href="{{ path('category_edit', {'id': category.id}) }}">{{ 'action.edit'|trans }}</a>
+                        <a class="btn btn-outline-danger" href="{{ path('category_delete', {'id': category.id}) }}">{{ 'action.delete'|trans }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            {{ 'message.empty_list'|trans }}
+        </div>
+    {% endif %}
+{% endblock %}
