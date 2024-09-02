@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Task details'|trans({'%id%': todolist.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'Task details'|trans({'%id%': todolist.id|default('')}) }}</h1>
+    {% if todolist is defined and todolist|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'ID'|trans }}</dt>
+            <dd>{{ todolist.id }}</dd>
+            <dt>{{ 'Created at'|trans }}</dt>
+            <dd>{{ todolist.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'Title'|trans }}</dt>
+            <dd>{{  todolist.title }}</dd>
+            <dt>{{ 'Category'|trans }}</dt>
+            <dd>{{  todolist.category.title }}</dd>
+        </dl>
+        <p>
+            <a class="btn btn-outline-primary" href="{{ url('todolist_index') }}" title="{{ 'Return'|trans }}">
+                <i class="fas fa-reply"></i>{{ 'Return'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {{ 'Record not found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

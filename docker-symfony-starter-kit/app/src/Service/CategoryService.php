@@ -7,8 +7,13 @@ namespace App\Service;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Repository\NoteRepository;
+use App\Repository\ToDoListRepository;
+use App\Entity\Note;
 
 // ...
 /**
@@ -33,7 +38,7 @@ class CategoryService implements CategoryServiceInterface
      * @param CategoryRepository $CategoryRepository Category repository
      * @param PaginatorInterface $paginator Paginator
      */
-    public function __construct(private readonly CategoryRepository $CategoryRepository, private readonly PaginatorInterface $paginator)
+    public function __construct(private readonly CategoryRepository $CategoryRepository, private readonly PaginatorInterface $paginator, private readonly NoteRepository $NoteRepository, private readonly ToDoListRepository $ToDoListRepository)
     {
     }
 
@@ -80,5 +85,23 @@ class CategoryService implements CategoryServiceInterface
         }
 
         $this->CategoryRepository->delete($category);
+    }
+
+    /**
+     * Can Category be deleted?
+     *
+     * @param Category $category Category entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Category $category): bool
+    {
+        try {
+            $result = ($this->NoteRepository->countByCategory($category)||($this->ToDoListRepository->countByCategory($category)));
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
     }
 }

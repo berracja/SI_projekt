@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'To do list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="text-end" style="margin-top: 1%">
+        <a class="btn btn-outline-secondary" href="{{ url('note_index') }}">
+            {{ 'Notes'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('todolist_index') }}">
+            {{ 'To do list'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('category_index') }}">
+            {{ 'Categories'|trans }}
+        </a>
+    </div>
+    <h1>{{ 'To do list'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation text-end" >
+            <nav>
+                {{ knp_pagination_render(pagination) }}
+            </nav>
+        </div>
+        <a class="btn btn-primary" style="margin-bottom: 1%" href="{{ path('todolist_create') }}">
+            <i class="fas fa-plus"></i>{{ ' Create a new task'|trans }}</a>
+        <table class="table table-dark table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'ID'|trans, 'todolist.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Created at'|trans, 'todolist.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Title'|trans, 'todolist.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Deadline'|trans, 'todolist.deadline') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Category'|trans, 'category.title') }}</th>
+                <th class="text-center">{{ 'Actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for todolist in pagination.items %}
+                <tr>
+                    <td>{{ todolist.id }}</td>
+                    <td>{{ todolist.createdAt|format_date('long') }}</td>
+                    <td>{{ todolist.title }}</td>
+                    <td>{{ todolist.deadline|format_datetime('long', 'short') }}</td>
+                    <td>{{ todolist.category.title }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-outline-info" href="{{ path('todolist_show', {'id': todolist.id}) }}">
+                            <i class="fas fa-eye"></i>{{ 'Show'|trans }}
+                        </a>
+                        <a class="btn btn-outline-success" href="{{ path('todolist_edit', {'id': todolist.id}) }}">
+                            <i class="fas fa-edit"></i>{{ 'Edit'|trans }}
+                        </a>
+                        <a class="btn btn-outline-danger" href="{{ path('todolist_delete', {'id': todolist.id}) }}">
+                            <i class="fas fa-trash-alt"></i>{{ 'Delete'|trans }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            <i class="fas fa-exclamation-circle"></i> {{ 'The list is empty.'|trans }}
+        </div>
+    {% endif %}
+{% endblock %}

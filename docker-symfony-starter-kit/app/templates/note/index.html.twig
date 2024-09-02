@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'List of notes'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="text-end" style="margin-top: 1%">
+        <a class="btn btn-outline-secondary" href="{{ url('note_index') }}">
+            {{ 'Notes'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('todolist_index') }}">
+            {{ 'To do list'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('category_index') }}">
+            {{ 'Categories'|trans }}
+        </a>
+    </div>
+    <h1>{{ 'List of notes'|trans }}</h1>
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <a class="btn btn-primary" style="margin-bottom: 1%" href="{{ path('note_create') }}">
+        <i class="fas fa-plus"></i>{{ ' Create a new note'|trans }}</a>
+
+        <table class="table table-dark table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'ID'|trans, 'note.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Created at'|trans, 'note.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Updated at'|trans, 'note.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Title'|trans, 'note.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Category'|trans, 'category.title') }}</th>
+                <th class="text-center">{{ 'Actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for note in pagination.items %}
+                <tr>
+                    <td>{{ note.id }}</td>
+                    <td>{{ note.createdAt|format_date('long') }}</td>
+                    <td>{{ note.updatedAt|format_date('long') }}</td>
+                    <td>{{ note.title }}</td>
+                    <td>{{ note.category.title }}</td>
+                    <td class="text-center">
+                        <a class="btn btn-outline-info" href="{{ path('note_show', {'id': note.id}) }}">
+                            <i class="fas fa-eye"></i>{{ 'Show'|trans }}
+                        </a>
+                        <a class="btn btn-outline-success" href="{{ path('note_edit', {'id': note.id}) }}">
+                            <i class="fas fa-edit"></i>{{ 'Edit'|trans }}
+                        </a>
+                        <a class="btn btn-outline-danger" href="{{ path('note_delete', {'id': note.id}) }}">
+                            <i class="fas fa-trash-alt"></i>{{ 'Delete'|trans }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            <i class="fas fa-exclamation-circle"></i> {{ 'The list is empty.'|trans }}
+        </div>
+    {% endif %}
+{% endblock %}

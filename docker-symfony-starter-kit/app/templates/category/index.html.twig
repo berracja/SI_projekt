@@ -1,24 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.category_list'|trans }}
+    {{ 'List of categories'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.category_list'|trans }}</h1>
+    <div class="text-end" style="margin-top: 1%">
+        <a class="btn btn-outline-secondary" href="{{ url('note_index') }}">
+            {{ 'Notes'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('todolist_index') }}">
+            {{ 'To do list'|trans }}
+        </a>
+        <a class="btn btn-outline-secondary" href="{{ url('category_index') }}">
+            {{ 'Categories'|trans }}
+        </a>
+    </div>
+    <h1>{{ 'List of categories'|trans }}</h1>
 
     <div class="navigation text-center">
         {{ knp_pagination_render(pagination) }}
     </div>
-
+    <a class="btn btn-primary" style="margin-bottom: 1%" href="{{ path('category_create') }}">
+        <i class="fas fa-plus"></i>{{ 'Create a new category'|trans }}</a>
     {% if pagination is defined and pagination.items|length %}
-        <table class="table">
+        <table class="table table-dark table-hover table-bordered" style="margin-right: 10%;">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'category.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'category.updatedAt') }}</th>
-                <th>{{ 'label.actions'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Title'|trans, 'category.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Created at'|trans, 'category.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Updated at'|trans, 'category.updatedAt') }}</th>
+                <th class="text-center">{{ 'Actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -27,10 +39,15 @@
                     <td>{{ category.title }}</td>
                     <td>{{ category.createdAt|format_date('long') }}</td>
                     <td>{{ category.updatedAt|format_date('long') }}</td>
-                    <td>
-                        <a class="btn btn-outline-primary" href="{{ path('category_show', {'id': category.id}) }}">{{ 'action.show'|trans }}</a>
-                        <a class="btn btn-outline-success" href="{{ path('category_edit', {'id': category.id}) }}">{{ 'action.edit'|trans }}</a>
-                        <a class="btn btn-outline-danger" href="{{ path('category_delete', {'id': category.id}) }}">{{ 'action.delete'|trans }}</a>
+                    <td class="text-center">
+                        <a class="btn btn-outline-info" href="{{ path('category_show', {'id': category.id}) }}">
+                            <i class="fas fa-eye"></i>{{ 'Show'|trans }}
+                        </a>
+                        <a class="btn btn-outline-success" href="{{ path('category_edit', {'id': category.id}) }}">
+                            <i class="fas fa-edit"></i>{{ 'Edit'|trans }}
+                        </a>
+                        <a class="btn btn-outline-danger" href="{{ path('category_delete', {'id': category.id}) }}">
+                            <i class="fas fa-trash-alt"></i>{{ 'Delete'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -41,8 +58,8 @@
             {{ knp_pagination_render(pagination) }}
         </div>
     {% else %}
-        <div class="alert alert-info" role="alert">
-            {{ 'message.empty_list'|trans }}
+        <div class="alert alert-warning text-center" role="alert">
+            <i class="fas fa-exclamation-circle"></i> {{ 'The list is empty.'|trans }}
         </div>
     {% endif %}
 {% endblock %}
