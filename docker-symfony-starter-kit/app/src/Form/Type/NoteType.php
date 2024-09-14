@@ -48,7 +48,6 @@ class NoteType extends AbstractType
                     return $category->getTitle();
                 },
                 'label' => 'Category',
-                'placeholder' => 'choose a category',
                 'required' => true,
             ]
         );

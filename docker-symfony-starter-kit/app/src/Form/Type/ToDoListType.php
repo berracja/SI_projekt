@@ -50,7 +50,6 @@ class ToDoListType extends AbstractType
                     return $category->getTitle();
                 },
                 'label' => 'Category',
-                'placeholder' => 'none',
                 'required' => true,
             ]
         );

@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="label.actions">
+        <source>label.actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="label.id">
+        <source>label.id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="label.title">
+        <source>label.title</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="label.content">
+        <source>label.content</source>
+        <target>Content</target>
+      </trans-unit>
+      <trans-unit id="label.tags">
+        <source>label.tags</source>
+        <target>Tags</target>
+      </trans-unit>
+      <trans-unit id="message.empty_list">
+        <source>message.empty_list</source>
+        <target>List is empty.</target>
+      </trans-unit>
+      <trans-unit id="message.record_not_found">
+        <source>message.record_not_found</source>
+        <target>Record not found.</target>
+      </trans-unit>
+      <trans-unit id="title.record_list">
+        <source>title.record_list</source>
+        <target>Records list</target>
+      </trans-unit>
+      <trans-unit id="title.record_view">
+        <source>title.record_view</source>
+        <target>Record view #%id%</target>
+      </trans-unit>
+      <trans-unit id="list_of_notes">
+        <source>List of notes</source>
+        <target>List of notes</target>
+      </trans-unit>
+      <trans-unit id="notes">
+        <source>Notes</source>
+        <target>Notes</target>
+      </trans-unit>
+      <trans-unit id="to_do_list">
+        <source>To do list</source>
+        <target>To do list</target>
+      </trans-unit>
+      <trans-unit id="categories">
+        <source>Categories</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_note">
+        <source> Create a new note</source>
+        <target> Create a new note</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_task">
+        <source> Create a new task</source>
+        <target> Create a new task</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_category">
+        <source> Create a new category</source>
+        <target> Create a new category</target>
+      </trans-unit>
+      <trans-unit id="id">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="created_at">
+        <source>Created at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="updated_at">
+        <source>Updated at</source>
+        <target>Updated at</target>
+      </trans-unit>
+      <trans-unit id="title">
+        <source>Title</source>
+        <target>Title</target>
+      </trans-unit>
+      <trans-unit id="category">
+        <source>Category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="actions">
+        <source>Actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="show">
+        <source>Show</source>
+        <target>Show</target>
+      </trans-unit>
+      <trans-unit id="edit">
+        <source>Edit</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="delete">
+        <source>Delete</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="the_list_is_empty">
+        <source>The list is empty.</source>
+        <target>The list is empty.</target>
+      </trans-unit>
+      <trans-unit id="form_error">
+        <source>Form error</source>
+        <target>Form error</target>
+      </trans-unit>
+      <trans-unit id="return">
+        <source>Return</source>
+        <target>Return</target>
+      </trans-unit>
+      <trans-unit id="save">
+        <source>Save</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="deadline">
+        <source>Deadline</source>
+        <target>Deadline</target>
+      </trans-unit>
+      <trans-unit id="category_created_successfully">
+        <source>Category created successfully</source>
+        <target>Category created successfully</target>
+      </trans-unit>
+
+      <trans-unit id="category_edited_successfully">
+        <source>Category edited successfully</source>
+        <target>Category edited successfully</target>
+      </trans-unit>
+
+      <trans-unit id="category_is_being_used">
+        <source>Category is being used!</source>
+        <target>Category is being used!</target>
+      </trans-unit>
+
+      <trans-unit id="category_deleted_successfully">
+        <source>Category deleted successfully</source>
+        <target>Category deleted successfully</target>
+      </trans-unit>
+
+      <trans-unit id="note_created_successfully">
+        <source>Note created successfully</source>
+        <target>Note created successfully</target>
+      </trans-unit>
+
+      <trans-unit id="note_edited_successfully">
+        <source>Note edited successfully</source>
+        <target>Note edited successfully</target>
+      </trans-unit>
+
+      <trans-unit id="note_deleted_successfully">
+        <source>Note deleted successfully</source>
+        <target>Note deleted successfully</target>
+      </trans-unit>
+
+      <trans-unit id="task_created_successfully">
+        <source>Task created successfully</source>
+        <target>Task created successfully</target>
+      </trans-unit>
+
+      <trans-unit id="task_edited_successfully">
+        <source>Task edited successfully</source>
+        <target>Task edited successfully</target>
+      </trans-unit>
+
+      <trans-unit id="task_deleted_successfully">
+        <source>Task deleted successfully</source>
+        <target>Task deleted successfully</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_category">
+        <source>Delete the category</source>
+        <target>Delete the category</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_category">
+        <source>Edit the category</source>
+        <target>Edit the category</target>
+      </trans-unit>
+
+      <trans-unit id="list_of_categories">
+        <source>List of categories</source>
+        <target>List of categories</target>
+      </trans-unit>
+      <trans-unit id="category_details">
+        <source>Category details</source>
+        <target>Category details</target>
+      </trans-unit>
+
+      <trans-unit id="record_not_found">
+        <source>Record not found</source>
+        <target>Record not found</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_note">
+        <source>Delete the note</source>
+        <target>Delete the note</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_note">
+        <source>Edit the note</source>
+        <target>Edit the note</target>
+      </trans-unit>
+
+      <trans-unit id="note_details">
+        <source>Note details</source>
+        <target>Note details</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_task">
+        <source>Delete the task</source>
+        <target>Delete the task</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_task">
+        <source>Edit the task</source>
+        <target>Edit the task</target>
+      </trans-unit>
+
+      <trans-unit id="task_details">
+        <source>Task details</source>
+        <target>Task details</target>
+      </trans-unit>
+
+      <trans-unit id="Title cannot be empty!">
+        <source>Title cannot be empty!</source>
+        <target>Title cannot be empty!</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

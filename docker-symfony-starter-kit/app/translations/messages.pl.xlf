@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="label.actions">
+        <source>label.actions</source>
+        <target>Opcje</target>
+      </trans-unit>
+      <trans-unit id="label.id">
+        <source>label.id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="label.title">
+        <source>label.title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="label.content">
+        <source>label.content</source>
+        <target>Zawartość</target>
+      </trans-unit>
+      <trans-unit id="label.tags">
+        <source>label.tags</source>
+        <target>Tagi</target>
+      </trans-unit>
+      <trans-unit id="message.empty_list">
+        <source>message.empty_list</source>
+        <target>Lista jest pusta.</target>
+      </trans-unit>
+      <trans-unit id="message.record_not_found">
+        <source>message.record_not_found</source>
+        <target>Nie znaleziono wyniku.</target>
+      </trans-unit>
+      <trans-unit id="title.record_list">
+        <source>title.record_list</source>
+        <target>Lista wyników</target>
+      </trans-unit>
+      <trans-unit id="title.record_view">
+        <source>title.record_view</source>
+        <target>Wynik #%id%</target>
+      </trans-unit>
+      <trans-unit id="list_of_notes">
+        <source>List of notes</source>
+        <target>Lista notatek</target>
+      </trans-unit>
+      <trans-unit id="notes">
+        <source>Notes</source>
+        <target>Notatki</target>
+      </trans-unit>
+      <trans-unit id="to_do_list">
+        <source>To do list</source>
+        <target>Lista zadań</target>
+      </trans-unit>
+      <trans-unit id="categories">
+        <source>Categories</source>
+        <target>Kategorie</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_note">
+        <source>Create a new note</source>
+        <target>Utwórz nową notatkę</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_task">
+        <source>Create a new task</source>
+        <target>Utwórz nowe zadanie</target>
+      </trans-unit>
+      <trans-unit id="create_a_new_category">
+        <source>Create a new category</source>
+        <target>Utwórz nową kategorię</target>
+      </trans-unit>
+      <trans-unit id="id">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="created_at">
+        <source>Created at</source>
+        <target>Utworzono</target>
+      </trans-unit>
+      <trans-unit id="updated_at">
+        <source>Updated at</source>
+        <target>Zaktualizowano</target>
+      </trans-unit>
+      <trans-unit id="title">
+        <source>Title</source>
+        <target>Tytuł</target>
+      </trans-unit>
+      <trans-unit id="category">
+        <source>Category</source>
+        <target>Kategoria</target>
+      </trans-unit>
+      <trans-unit id="actions">
+        <source>Actions</source>
+        <target>Akcje</target>
+      </trans-unit>
+      <trans-unit id="show">
+        <source>Show</source>
+        <target>Pokaż</target>
+      </trans-unit>
+      <trans-unit id="edit">
+        <source>Edit</source>
+        <target>Edytuj</target>
+      </trans-unit>
+      <trans-unit id="delete">
+        <source>Delete</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="the_list_is_empty">
+        <source>The list is empty.</source>
+        <target>Lista jest pusta.</target>
+      </trans-unit>
+      <trans-unit id="form_error">
+        <source>Form error</source>
+        <target>Błąd formularza</target>
+      </trans-unit>
+      <trans-unit id="return">
+        <source>Return</source>
+        <target>Powrót</target>
+      </trans-unit>
+      <trans-unit id="save">
+        <source>Save</source>
+        <target>Zapisz</target>
+      </trans-unit>
+      <trans-unit id="deadline">
+        <source>Deadline</source>
+        <target>Termin</target>
+      </trans-unit>
+      <trans-unit id="category_created_successfully">
+        <source>Category created successfully</source>
+        <target>Kategoria została pomyślnie utworzona</target>
+      </trans-unit>
+
+      <trans-unit id="category_edited_successfully">
+        <source>Category edited successfully</source>
+        <target>Kategoria została pomyślnie edytowana</target>
+      </trans-unit>
+
+      <trans-unit id="category_is_being_used">
+        <source>Category is being used!</source>
+        <target>Kategoria jest w użyciu!</target>
+      </trans-unit>
+
+      <trans-unit id="category_deleted_successfully">
+        <source>Category deleted successfully</source>
+        <target>Kategoria została pomyślnie usunięta</target>
+      </trans-unit>
+
+      <trans-unit id="note_created_successfully">
+        <source>Note created successfully</source>
+        <target>Notatka została pomyślnie utworzona</target>
+      </trans-unit>
+
+      <trans-unit id="note_edited_successfully">
+        <source>Note edited successfully</source>
+        <target>Notatka została pomyślnie edytowana</target>
+      </trans-unit>
+
+      <trans-unit id="note_deleted_successfully">
+        <source>Note deleted successfully</source>
+        <target>Notatka została pomyślnie usunięta</target>
+      </trans-unit>
+
+      <trans-unit id="task_created_successfully">
+        <source>Task created successfully</source>
+        <target>Zadanie zostało pomyślnie utworzone</target>
+      </trans-unit>
+
+      <trans-unit id="task_edited_successfully">
+        <source>Task edited successfully</source>
+        <target>Zadanie zostało pomyślnie edytowane</target>
+      </trans-unit>
+
+      <trans-unit id="task_deleted_successfully">
+        <source>Task deleted successfully</source>
+        <target>Zadanie zostało pomyślnie usunięte</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_category">
+        <source>Delete the category</source>
+        <target>Usuń kategorię</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_category">
+        <source>Edit the category</source>
+        <target>Edytuj kategorię</target>
+      </trans-unit>
+
+      <trans-unit id="list_of_categories">
+        <source>List of categories</source>
+        <target>Lista kategorii</target>
+      </trans-unit>
+      <trans-unit id="category_details">
+        <source>Category details</source>
+        <target>Szczegóły kategorii</target>
+      </trans-unit>
+
+      <trans-unit id="record_not_found">
+        <source>Record not found</source>
+        <target>Nie znaleziono rekordu</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_note">
+        <source>Delete the note</source>
+        <target>Usuń notatkę</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_note">
+        <source>Edit the note</source>
+        <target>Edytuj notatkę</target>
+      </trans-unit>
+
+      <trans-unit id="note_details">
+        <source>Note details</source>
+        <target>Szczegóły notatki</target>
+      </trans-unit>
+
+      <trans-unit id="delete_the_task">
+        <source>Delete the task</source>
+        <target>Usuń zadanie</target>
+      </trans-unit>
+
+      <trans-unit id="edit_the_task">
+        <source>Edit the task</source>
+        <target>Edytuj zadanie</target>
+      </trans-unit>
+
+      <trans-unit id="task_details">
+        <source>Task details</source>
+        <target>Szczegóły zadania</target>
+      </trans-unit>
+
+      <trans-unit id="Title cannot be empty!">
+        <source>Title cannot be empty!</source>
+        <target>Tytuł nie może być pusty!</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
