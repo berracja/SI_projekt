@@ -1,6 +1,6 @@
 <?php
 /**
- * <?php
+ * <?php.
  * /**
  *  Category service interface.
  * /
@@ -20,20 +20,18 @@
  *
  * @param int $page Page number
  *
- * @return PaginationInterface<string, mixed> Paginated list
- * /
- * public function getPaginatedList(int $page): PaginationInterface;
+ * @return PaginationInterface<string, mixed> paginated list
+ *                                            /
+ *                                            public function getPaginatedList(int $page): PaginationInterface;
  *
  * }
- * service interface.
+ * service interface
  */
 
 namespace App\Service;
 
 use App\Entity\Category;
 use Knp\Component\Pager\Pagination\PaginationInterface;
-use App\Repository\NoteRepository;
-use App\Entity\Note;
 
 /**
  * Interface CategoryServiceInterface.
@@ -71,5 +69,4 @@ interface CategoryServiceInterface
      * @return bool Result
      */
     public function canBeDeleted(Category $category): bool;
-
 }

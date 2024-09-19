@@ -6,9 +6,6 @@
 namespace App\Entity;
 
 use App\Repository\ToDoListRepository;
-use DateTimeImmutable;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -21,11 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: 'todolists')]
 class ToDoList
 {
-    /**
-     * Primary key.
-     *
-     * @var int|null
-     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -34,39 +26,23 @@ class ToDoList
     /**
      * Created at.
      *
-     * @var DateTimeImmutable|null
-     *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Assert\Type(DateTimeImmutable::class)]
+    #[Assert\Type(\DateTimeImmutable::class)]
     #[Gedmo\Timestampable(on: 'create')]
-    private ?DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt = null;
 
-    /**
-     * Title.
-     *
-     * @var string|null
-     */
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank]
     private ?string $title = null;
 
-    /**
-     * Category.
-     */
     #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    /**
-     * Deadline.
-     *
-     * @var \DateTimeInterface|null
-     */
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $deadline = null;
-
 
     /**
      * Getter for Id.
@@ -81,9 +57,9 @@ class ToDoList
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -91,9 +67,9 @@ class ToDoList
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -118,7 +94,6 @@ class ToDoList
         $this->title = $title;
     }
 
-
     /**
      * Getter for category.
      *
@@ -130,9 +105,9 @@ class ToDoList
     }
 
     /**
-     * Setter for category.
+     * @param Category|null $category
      *
-     * @param Category|null $category Category
+     * @return void
      */
     public function setCategory(?Category $category): void
     {
@@ -140,8 +115,6 @@ class ToDoList
     }
 
     /**
-     * Getter for deadline.
-     *
      * @return \DateTimeInterface|null
      */
     public function getDeadline(): ?\DateTimeInterface
@@ -150,9 +123,8 @@ class ToDoList
     }
 
     /**
-     * Setter for deadline.
-     *
      * @param \DateTimeInterface|null $deadline
+     *
      * @return $this
      */
     public function setDeadline(?\DateTimeInterface $deadline): static
@@ -161,5 +133,4 @@ class ToDoList
 
         return $this;
     }
-
 }

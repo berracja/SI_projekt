@@ -35,5 +35,4 @@ interface ToDoListServiceInterface
      * @param ToDoList $todolist ToDoList entity
      */
     public function delete(ToDoList $todolist): void;
-
 }

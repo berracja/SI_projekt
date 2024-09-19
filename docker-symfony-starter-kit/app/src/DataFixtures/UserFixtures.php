@@ -1,64 +1,44 @@
 <?php
 /**
- * User fixtures.
+ * User Fixtures.
  */
-
 namespace App\DataFixtures;
 
-use App\Entity\Enum\UserRole;
 use App\Entity\User;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Faker\Generator;
 
 /**
  * Class UserFixtures.
  */
-class UserFixtures extends AbstractBaseFixtures
+class UserFixtures extends Fixture
 {
     /**
-     * @param UserPasswordHasherInterface $passwordHasher Password hasher
+     * @var UserPasswordHasherInterface
      */
-    public function __construct(private readonly UserPasswordHasherInterface $passwordHasher)
+    private $encoder;
+
+    /**
+     * @param UserPasswordHasherInterface $encoder
+     */
+    public function __construct(UserPasswordHasherInterface $encoder)
     {
+        $this->encoder = $encoder;
     }
 
     /**
-     * Load data.
+     * @param ObjectManager $manager
+     *
+     * @return void
      */
-    protected function loadData(): void
+    public function load(ObjectManager $manager)
     {
-        if (!$this->manager instanceof ObjectManager || !$this->faker instanceof Generator) {
-            return;
-        }
+        $user = new User();
+        $user->setEmail('admin@example.com');
+        $user->setPassword($this->encoder->hashPassword($user, 'admin1234'));
+        $manager->persist($user);
 
-        $this->createMany(10, 'users', function (int $i) {
-            $user = new User();
-            $user->setEmail(sprintf('user%d@example.com', $i));
-            $user->setRoles([UserRole::ROLE_USER->value]);
-            $user->setPassword(
-                $this->passwordHasher->hashPassword(
-                    $user,
-                    'user1234'
-                )
-            );
-
-            return $user;
-        });
-
-        $this->createMany(3, 'admins', function (int $i) {
-            $user = new User();
-            $user->setEmail(sprintf('admin%d@example.com', $i));
-            $user->setRoles([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value]);
-            $user->setPassword(
-                $this->passwordHasher->hashPassword(
-                    $user,
-                    'admin1234'
-                )
-            );
-
-            return $user;
-        });
-
-        $this->manager->flush();
+        $manager->flush();
     }
 }

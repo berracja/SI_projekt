@@ -230,6 +230,46 @@
         <source>Title cannot be empty!</source>
         <target>Tytuł nie może być pusty!</target>
       </trans-unit>
+      <trans-unit id="Please sign in">
+        <source>Please sign in</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+
+      <trans-unit id="Log in!">
+        <source>Log in!</source>
+        <target>Zaloguj się!</target>
+      </trans-unit>
+
+      <trans-unit id="You are logged in as">
+        <source>You are logged in as</source>
+        <target>Jesteś zalogowany jako</target>
+      </trans-unit>
+
+      <trans-unit id="Logout">
+        <source>Logout</source>
+        <target>Wyloguj się</target>
+      </trans-unit>
+
+      <trans-unit id="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+
+      <trans-unit id="Password">
+        <source>Password</source>
+        <target>Hasło</target>
+      </trans-unit>
+
+      <trans-unit id="Sign in">
+        <source>Sign in</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+
+      <trans-unit id="Log in">
+        <source>Log in</source>
+        <target>Log in</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

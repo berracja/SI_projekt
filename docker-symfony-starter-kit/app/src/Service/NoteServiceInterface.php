@@ -35,5 +35,4 @@ interface NoteServiceInterface
      * @param Note $note Note entity
      */
     public function delete(Note $note): void;
-
 }

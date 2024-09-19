@@ -13,9 +13,7 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\NoteRepository;
 use App\Repository\ToDoListRepository;
-use App\Entity\Note;
 
-// ...
 /**
  * Class CategoryService.
  */
@@ -33,12 +31,12 @@ class CategoryService implements CategoryServiceInterface
     private const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
-     * Constructor.
-     *
-     * @param CategoryRepository $CategoryRepository Category repository
-     * @param PaginatorInterface $paginator Paginator
+     * @param CategoryRepository $categoryRepository
+     * @param PaginatorInterface $paginator
+     * @param NoteRepository     $noteRepository
+     * @param ToDoListRepository $toDoListRepository
      */
-    public function __construct(private readonly CategoryRepository $CategoryRepository, private readonly PaginatorInterface $paginator, private readonly NoteRepository $NoteRepository, private readonly ToDoListRepository $ToDoListRepository)
+    public function __construct(private readonly CategoryRepository $categoryRepository, private readonly PaginatorInterface $paginator, private readonly NoteRepository $noteRepository, private readonly ToDoListRepository $toDoListRepository)
     {
     }
 
@@ -52,7 +50,7 @@ class CategoryService implements CategoryServiceInterface
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->CategoryRepository->queryAll(),
+            $this->categoryRepository->queryAll(),
             $page,
             self::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -65,12 +63,12 @@ class CategoryService implements CategoryServiceInterface
      */
     public function save(Category $category): void
     {
-        if (null == $category->getId()) {
+        if (null === $category->getId()) {
             $category->setCreatedAt(new \DateTimeImmutable());
         }
         $category->setUpdatedAt(new \DateTimeImmutable());
 
-        $this->CategoryRepository->save($category);
+        $this->categoryRepository->save($category);
     }
 
     /**
@@ -80,11 +78,11 @@ class CategoryService implements CategoryServiceInterface
      */
     public function delete(Category $category): void
     {
-        if (null == $category->getId()) {
+        if (null === $category->getId()) {
             $category->setCreatedAt(new \DateTimeImmutable());
         }
 
-        $this->CategoryRepository->delete($category);
+        $this->categoryRepository->delete($category);
     }
 
     /**
@@ -97,9 +95,12 @@ class CategoryService implements CategoryServiceInterface
     public function canBeDeleted(Category $category): bool
     {
         try {
-            $result = ($this->NoteRepository->countByCategory($category)||($this->ToDoListRepository->countByCategory($category)));
+            $result = (
+                $this->noteRepository->countByCategory($category)
+                || $this->toDoListRepository->countByCategory($category)
+            );
 
-            return !($result > 0);
+            return 0 === $result;
         } catch (NoResultException|NonUniqueResultException) {
             return false;
         }

@@ -13,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * Class ToDoListType.
@@ -40,15 +39,14 @@ class ToDoListType extends AbstractType
                 'label' => 'Title',
                 'required' => true,
                 'attr' => ['max_length' => 255],
-            ]);
+            ]
+        );
         $builder->add(
             'category',
             EntityType::class,
             [
                 'class' => Category::class,
-                'choice_label' => function ($category): string {
-                    return $category->getTitle();
-                },
+                'choice_label' => fn ($category): string => $category->getTitle(),
                 'label' => 'Category',
                 'required' => true,
             ]
@@ -64,7 +62,6 @@ class ToDoListType extends AbstractType
                 'html5' => true,
                 'attr' => ['class' => 'js-datepicker'],
             ]
-
         );
     }
 

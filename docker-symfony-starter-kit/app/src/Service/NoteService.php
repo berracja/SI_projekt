@@ -27,21 +27,17 @@ class NoteService implements NoteServiceInterface
     private const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
-     * Constructor.
-     *
-     * @param NoteRepository     $NoteRepository Note repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param NoteRepository     $noteRepository
+     * @param PaginatorInterface $paginator
      */
     public function __construct(private readonly NoteRepository $noteRepository, private readonly PaginatorInterface $paginator)
     {
     }
 
     /**
-     * Get paginated list.
+     * @param int $page
      *
-     * @param int $page Page number
-     *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -53,13 +49,16 @@ class NoteService implements NoteServiceInterface
     }
 
     /**
-     * Save entity.
+     * @param Note $note
      *
-     * @param Note $note Note entity
+     * @return void
+     *
+     * @throws \Doctrine\ORM\Exception\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function save(Note $note): void
     {
-        if (null == $note->getId()) {
+        if (null === $note->getId()) {
             $note->setCreatedAt(new \DateTimeImmutable());
         }
         $note->setUpdatedAt(new \DateTimeImmutable());
@@ -76,6 +75,4 @@ class NoteService implements NoteServiceInterface
     {
         $this->noteRepository->delete($note);
     }
-
 }
-

@@ -29,10 +29,10 @@ class ToDoListService implements ToDoListServiceInterface
     /**
      * Constructor.
      *
-     * @param todolistRepository     $todolistRepository ToDoList repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param ToDoListRepository $todolistRepository ToDoList repository
+     * @param PaginatorInterface $paginator          Paginator
      */
-    public function __construct(private readonly todolistRepository $todolistRepository, private readonly PaginatorInterface $paginator)
+    public function __construct(private readonly ToDoListRepository $todolistRepository, private readonly PaginatorInterface $paginator)
     {
     }
 
@@ -53,19 +53,21 @@ class ToDoListService implements ToDoListServiceInterface
     }
 
     /**
-     * Save entity.
+     * @param ToDoList $todolist
      *
-     * @param ToDoList $todolist ToDoList entity
+     * @return void
+     *
+     * @throws \Doctrine\ORM\Exception\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function save(ToDoList $todolist): void
     {
-        if (null == $todolist->getId()) {
+        if (null === $todolist->getId()) {
             $todolist->setCreatedAt(new \DateTimeImmutable());
         }
 
         $this->todolistRepository->save($todolist);
     }
-
 
     /**
      * Delete entity.
@@ -76,6 +78,4 @@ class ToDoListService implements ToDoListServiceInterface
     {
         $this->todolistRepository->delete($todolist);
     }
-
 }
-

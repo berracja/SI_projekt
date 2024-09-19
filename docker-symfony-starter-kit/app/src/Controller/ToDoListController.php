@@ -23,7 +23,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ToDoListController extends AbstractController
 {
     /**
-     * Constructor.
+     * @param ToDoListServiceInterface $todolistService
+     * @param TranslatorInterface      $translator
      */
     public function __construct(private readonly ToDoListServiceInterface $todolistService, private readonly TranslatorInterface $translator)
     {
@@ -69,7 +70,7 @@ class ToDoListController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'todolist_create', methods: 'GET|POST', )]
+    #[Route('/create', name: 'todolist_create', methods: 'GET|POST')]
     public function create(Request $request): Response
     {
         $todolist = new ToDoList();
@@ -83,16 +84,18 @@ class ToDoListController extends AbstractController
                 'success',
                 $this->translator->trans('Task created successfully')
             );
+
             return $this->redirectToRoute('todolist_index');
         }
-        return $this->render('todolist/create.html.twig',  ['form' => $form->createView()]);
+
+        return $this->render('todolist/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
      * Edit action.
      *
-     * @param Request $request HTTP request
-     * @param ToDoList    $todolist    ToDoList entity
+     * @param Request  $request  HTTP request
+     * @param ToDoList $todolist ToDoList entity
      *
      * @return Response HTTP response
      */
@@ -132,8 +135,8 @@ class ToDoListController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request $request HTTP request
-     * @param ToDoList    $todolist    ToDoList entity
+     * @param Request  $request  HTTP request
+     * @param ToDoList $todolist ToDoList entity
      *
      * @return Response HTTP response
      */

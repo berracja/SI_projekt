@@ -23,7 +23,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class NoteController extends AbstractController
 {
     /**
-     * Constructor.
+     * @param NoteServiceInterface $noteService
+     * @param TranslatorInterface  $translator
      */
     public function __construct(private readonly NoteServiceInterface $noteService, private readonly TranslatorInterface $translator)
     {
@@ -69,7 +70,7 @@ class NoteController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'note_create', methods: 'GET|POST', )]
+    #[Route('/create', name: 'note_create', methods: 'GET|POST')]
     public function create(Request $request): Response
     {
         $note = new Note();
@@ -83,9 +84,11 @@ class NoteController extends AbstractController
                 'success',
                 $this->translator->trans('Note created successfully')
             );
+
             return $this->redirectToRoute('note_index');
         }
-        return $this->render('note/create.html.twig',  ['form' => $form->createView()]);
+
+        return $this->render('note/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**

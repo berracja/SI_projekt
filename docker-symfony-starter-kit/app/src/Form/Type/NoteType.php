@@ -18,7 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class NoteType extends AbstractType
 {
-     /**
+    /**
      * Builds the form.
      *
      * This method is called for each type in the hierarchy starting from the
@@ -38,15 +38,14 @@ class NoteType extends AbstractType
                 'label' => 'Title',
                 'required' => true,
                 'attr' => ['max_length' => 255],
-            ]);
+            ]
+        );
         $builder->add(
             'category',
             EntityType::class,
             [
                 'class' => Category::class,
-                'choice_label' => function ($category): string {
-                    return $category->getTitle();
-                },
+                'choice_label' => fn ($category): string => $category->getTitle(),
                 'label' => 'Category',
                 'required' => true,
             ]

@@ -20,25 +20,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\UniqueConstraint(name: 'email_idx', columns: ['email'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * Primary key.
-     *
-     * @var int|null
-     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    /**
-     * Email.
-     *
-     * @var string|null
-     */
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     #[Assert\NotBlank]
     #[Assert\Email]
-    private ?string $email;
+    private ?string $email = null;
 
     /**
      * Roles.
@@ -48,14 +38,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
-    /**
-     * Password.
-     *
-     * @var string|null
-     */
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
-    private ?string $password;
+    private ?string $password = null;
 
     /**
      * Getter for id.
@@ -158,10 +143,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
-     *
-     * @see UserInterface
+     * @return string|null
      */
     public function getSalt(): ?string
     {
