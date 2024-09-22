@@ -31,10 +31,10 @@ class CategoryService implements CategoryServiceInterface
     private const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
-     * @param CategoryRepository $categoryRepository
-     * @param PaginatorInterface $paginator
-     * @param NoteRepository     $noteRepository
-     * @param ToDoListRepository $toDoListRepository
+     * @param CategoryRepository $categoryRepository categoryRepository
+     * @param PaginatorInterface $paginator          paginator
+     * @param NoteRepository     $noteRepository     noteRepository
+     * @param ToDoListRepository $toDoListRepository toDoListRepository
      */
     public function __construct(private readonly CategoryRepository $categoryRepository, private readonly PaginatorInterface $paginator, private readonly NoteRepository $noteRepository, private readonly ToDoListRepository $toDoListRepository)
     {

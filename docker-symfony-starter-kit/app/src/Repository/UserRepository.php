@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
     /**
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -28,10 +28,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * @param PasswordAuthenticatedUserInterface $user
-     * @param string                             $newHashedPassword
-     *
-     * @return void
+     * @param PasswordAuthenticatedUserInterface $user              user
+     * @param string                             $newHashedPassword newHashedPassword
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
@@ -45,9 +43,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * @param User $user
-     *
-     * @return void
+     * @param User $user user
      *
      * @throws ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

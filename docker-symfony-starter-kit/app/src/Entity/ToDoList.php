@@ -105,9 +105,7 @@ class ToDoList
     }
 
     /**
-     * @param Category|null $category
-     *
-     * @return void
+     * @param Category|null $category category
      */
     public function setCategory(?Category $category): void
     {
@@ -115,7 +113,9 @@ class ToDoList
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * Deadline getter.
+     *
+     * @return \DateTimeInterface|null DateTimeInterface|null
      */
     public function getDeadline(): ?\DateTimeInterface
     {
@@ -123,7 +123,7 @@ class ToDoList
     }
 
     /**
-     * @param \DateTimeInterface|null $deadline
+     * @param \DateTimeInterface|null $deadline deadline
      *
      * @return $this
      */

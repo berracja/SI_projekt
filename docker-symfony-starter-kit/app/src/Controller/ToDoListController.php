@@ -23,8 +23,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ToDoListController extends AbstractController
 {
     /**
-     * @param ToDoListServiceInterface $todolistService
-     * @param TranslatorInterface      $translator
+     * @param ToDoListServiceInterface $todolistService todolistService
+     * @param TranslatorInterface      $translator      translator
      */
     public function __construct(private readonly ToDoListServiceInterface $todolistService, private readonly TranslatorInterface $translator)
     {

@@ -53,9 +53,7 @@ class ToDoListService implements ToDoListServiceInterface
     }
 
     /**
-     * @param ToDoList $todolist
-     *
-     * @return void
+     * @param ToDoList $todolist todolist
      *
      * @throws \Doctrine\ORM\Exception\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

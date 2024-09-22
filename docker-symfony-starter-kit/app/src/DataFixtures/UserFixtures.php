@@ -2,6 +2,7 @@
 /**
  * User Fixtures.
  */
+
 namespace App\DataFixtures;
 
 use App\Entity\User;
@@ -20,7 +21,7 @@ class UserFixtures extends Fixture
     private $encoder;
 
     /**
-     * @param UserPasswordHasherInterface $encoder
+     * @param UserPasswordHasherInterface $encoder encoder
      */
     public function __construct(UserPasswordHasherInterface $encoder)
     {
@@ -28,7 +29,7 @@ class UserFixtures extends Fixture
     }
 
     /**
-     * @param ObjectManager $manager
+     * @param ObjectManager $manager manager
      *
      * @return void
      */

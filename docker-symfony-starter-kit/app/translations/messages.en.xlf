@@ -66,6 +66,18 @@
         <source> Create a new category</source>
         <target> Create a new category</target>
       </trans-unit>
+      <trans-unit id="Create a new note">
+        <source>Create a new note</source>
+        <target>Create a new note</target>
+      </trans-unit>
+      <trans-unit id="Create a new task">
+        <source>Create a new task</source>
+        <target>Create a new task</target>
+      </trans-unit>
+      <trans-unit id="Create a new category">
+        <source>Create a new category</source>
+        <target>Create a new category</target>
+      </trans-unit>
       <trans-unit id="id">
         <source>ID</source>
         <target>ID</target>
@@ -267,7 +279,7 @@
 
       <trans-unit id="Log in">
         <source>Log in</source>
-        <target>Zaloguj się</target>
+        <target>Log in</target>
       </trans-unit>
 
     </body>

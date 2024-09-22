@@ -35,7 +35,7 @@ class CategoryController extends AbstractController
     /**
      * @param int $page
      *
-     * @return Response
+     * @return $this Response
      */
     #[Route(name: 'category_index', methods: 'GET')]
     public function index(#[MapQueryParameter] int $page = 1): Response

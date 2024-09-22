@@ -27,17 +27,17 @@ class NoteService implements NoteServiceInterface
     private const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
-     * @param NoteRepository     $noteRepository
-     * @param PaginatorInterface $paginator
+     * @param NoteRepository     $noteRepository noteRepository
+     * @param PaginatorInterface $paginator      paginator
      */
     public function __construct(private readonly NoteRepository $noteRepository, private readonly PaginatorInterface $paginator)
     {
     }
 
     /**
-     * @param int $page
+     * @param int $page page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -49,9 +49,7 @@ class NoteService implements NoteServiceInterface
     }
 
     /**
-     * @param Note $note
-     *
-     * @return void
+     * @param Note $note note
      *
      * @throws \Doctrine\ORM\Exception\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

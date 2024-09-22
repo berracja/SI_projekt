@@ -23,8 +23,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class NoteController extends AbstractController
 {
     /**
-     * @param NoteServiceInterface $noteService
-     * @param TranslatorInterface  $translator
+     * @param NoteServiceInterface $noteService noteService
+     * @param TranslatorInterface  $translator  translator
      */
     public function __construct(private readonly NoteServiceInterface $noteService, private readonly TranslatorInterface $translator)
     {
